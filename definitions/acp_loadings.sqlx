@@ -1,0 +1,15 @@
+-- definitions/acp_loadings.sqlx
+config {
+    type: "table",
+    description: "Analyse des loadings - contribution des variables originales aux composantes",
+    database: "financial-data-storage",
+    schema: "clean_data_test",
+    dependencies: ["modele_acp"]
+}
+
+SELECT 
+    principal_component_id,
+    feature,
+    numerical_value
+FROM ML.PRINCIPAL_COMPONENTS(MODEL `financial-data-storage.clean_data_test.modele_acp`)
+ORDER BY principal_component_id

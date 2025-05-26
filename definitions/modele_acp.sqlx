@@ -1,0 +1,21 @@
+-- definitions/modele_acp.sqlx
+config {
+    type: "operations",
+    description: "Création du modèle ACP avec 3 composantes principales",
+    database: "financial-data-storage",
+    schema: "clean_data_test"
+}
+
+CREATE OR REPLACE MODEL `financial-data-storage.clean_data_test.modele_acp`
+OPTIONS(
+    model_type='PCA',
+    num_principal_components=3
+) AS
+SELECT
+    jour_1,
+    semaine_1,
+    mois_1,
+    mois_3,
+    mois_6,
+    mois_12
+FROM ${ref("euribor_new")}
