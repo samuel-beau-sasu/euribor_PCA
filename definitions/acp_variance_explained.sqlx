@@ -3,7 +3,7 @@ config {
     type: "table",
     description: "Visualisation des composantes principales et leur variance expliquée",
     database: "financial-data-storage",
-    schema: "clean_data_test",
+    schema: "clean_data_preprod",
     dependencies: ["modele_acp"]
 }
 
@@ -11,5 +11,5 @@ SELECT
     principal_component_id,
     explained_variance_ratio,
     cumulative_explained_variance_ratio
-FROM ML.PRINCIPAL_COMPONENT_INFO(MODEL `financial-data-storage.clean_data_test.modele_acp`)
+FROM ML.PRINCIPAL_COMPONENT_INFO(MODEL `financial-data-storage.clean_data_preprod.modele_acp`)
 ORDER BY principal_component_id
