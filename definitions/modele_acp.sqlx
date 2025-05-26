@@ -3,10 +3,10 @@ config {
     type: "operations",
     description: "Création du modèle ACP avec 3 composantes principales",
     database: "financial-data-storage",
-    schema: "clean_data_test"
+    schema: "clean_data_prod"
 }
 
-CREATE OR REPLACE MODEL `financial-data-storage.clean_data_test.modele_acp`
+CREATE OR REPLACE MODEL `financial-data-storage.clean_data_prod.modele_acp`
 OPTIONS(
     model_type='PCA',
     num_principal_components=3

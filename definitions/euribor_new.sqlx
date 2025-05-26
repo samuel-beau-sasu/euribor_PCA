@@ -3,7 +3,7 @@ config {
     type: "table",
     description: "Table Euribor avec colonnes renommées pour l'analyse ACP",
     database: "financial-data-storage",
-    schema: "clean_data_test"
+    schema: "clean_data_prod"
 }
 
 SELECT
@@ -14,4 +14,4 @@ SELECT
     `3 mois` as mois_3,
     `6 mois` as mois_6,
     `12 mois` as mois_12
-FROM ${ref("clean_data_preprod", "euribor")}
+FROM ${ref("clean_data_prod", "euribor")}
