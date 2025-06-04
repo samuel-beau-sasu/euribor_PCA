@@ -3,8 +3,8 @@ config {
     type: "table",
     description: "Projection des données sur les nouvelles composantes principales",
     database: "financial-data-storage",
-    schema: "clean_data_prod",
-    dependencies: ["modele_acp", "euribor_new"]
+    schema: "clean_data_preprod",
+    dependencies: ["modele_acp", "euribor"]
 }
 
 SELECT
@@ -13,6 +13,6 @@ SELECT
     principal_component_2,
     principal_component_3
 FROM ML.PREDICT(
-    MODEL `financial-data-storage.clean_data_prod.modele_acp`,
-    TABLE ${ref("euribor_new")}
+    MODEL `financial-data-storage.clean_data_preprod.modele_acp`,
+    (FROM ${ref("clean_data_prod", "euribor")})
 )
