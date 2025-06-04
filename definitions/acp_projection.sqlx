@@ -14,5 +14,5 @@ SELECT
     principal_component_3
 FROM ML.PREDICT(
     MODEL `financial-data-storage.clean_data_preprod.modele_acp`,
-    FROM ${ref("clean_data_preprod", "euribor")}
+    (FROM ${ref("clean_data_preprod", "euribor")})
 )
