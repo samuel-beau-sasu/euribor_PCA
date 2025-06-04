@@ -3,7 +3,7 @@ config {
     type: "table",
     description: "Projection des données sur les nouvelles composantes principales",
     database: "financial-data-storage",
-    schema: "clean_data_preprod",
+    schema: "clean_data_prod",
     dependencies: ["modele_acp", "euribor"]
 }
 
